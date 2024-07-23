@@ -2701,7 +2701,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.digikey.com/products/en?keywords=WM3553CT-ND"
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/molex/0855135013/2404862"
 			(at 52.705 67.31 90)
 			(effects
 				(font
@@ -3128,7 +3128,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/726880"
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/yageo/RC0603JR-07470RL/726791"
 			(at 116.84 52.705 0)
 			(effects
 				(font
@@ -3322,7 +3322,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/726880"
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/yageo/RC0603JR-07470RL/726791"
 			(at 125.73 52.705 0)
 			(effects
 				(font
@@ -3484,7 +3484,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.digikey.com/en/products/detail/stmicroelectronics/VL53L4CDV0DH-1/16123783?s=N4IgTCBcDaIGoBkCsBmBAWAwgERAXQF8g"
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/stmicroelectronics/VL53L4CDV0DH-1/16123783"
 			(at 146.685 61.595 0)
 			(effects
 				(font
@@ -3833,7 +3833,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/yageo/RC0603FR-0710KL/726880"
 			(at 108.585 52.705 0)
 			(effects
 				(font
