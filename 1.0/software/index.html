@@ -1,0 +1,1379 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A nosepoke with vibration and analog distance sensing for neuroscience experiments">
+      
+      
+        <meta name="author" content="Andy Lustig">
+      
+      
+      
+        <link rel="prev" href="../hardware/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>Software - Haptic Time of Flight Nosepoke Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="grean">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Haptic Time of Flight Nosepoke Documentation" class="md-header__button md-logo" aria-label="Haptic Time of Flight Nosepoke Documentation" data-md-component="logo">
+      
+  <img src="../home.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Haptic Time of Flight Nosepoke Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Karpova-Lab/haptic-tof-nosepoke" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Karpova-Lab/haptic-tof-nosepoke
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine classes -->
+
+
+
+
+<!-- Navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Haptic Time of Flight Nosepoke Documentation"
+      class="md-nav__button md-logo"
+      aria-label="Haptic Time of Flight Nosepoke Documentation"
+      data-md-component="logo"
+    >
+      
+  <img src="../home.svg" alt="logo">
+
+    </a>
+    Haptic Time of Flight Nosepoke Documentation
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Karpova-Lab/haptic-tof-nosepoke" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Karpova-Lab/haptic-tof-nosepoke
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+  <br>
+    
+  
+  <hr style="border-top: 2px solid lightgray;">
+    <div style="padding-left:12px;font-size:.6rem;">
+        <br>
+        
+          <p class="nav_label">Questions? Feedback? Ideas?</p>
+          <a href="https://github.com/Karpova-Lab/haptic-tof-nosepoke/discussions" class="nav_button">
+            <span style="vertical-align: middle;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="height:13px"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.-->
+                <path d="M416 176C416 78.8 322.9 0 208 0S0 78.8 0 176c0 39.57 15.62 75.96 41.67 105.4-16.39 32.76-39.23 57.32-39.59 57.68-2.1 2.205-2.67 5.475-1.441 8.354C1.9 350.3 4.602 352 7.66 352c38.35 0 70.76-11.12 95.74-24.04C134.2 343.1 169.8 352 208 352c114.9 0 208-78.8 208-176zm183.6 267.7C624.8 413.9 640 376.6 640 336c0-97.2-86-176-192-176-.315 0-.62.041-.934.043C447.5 165.3 448 170.6 448 176c0 98.62-79.68 181.2-186.1 202.5C282.7 455.1 357.1 512 448 512c33.69 0 65.32-8.008 92.85-21.98C565.2 502 596.1 512 632.3 512c3.059 0 5.76-1.725 7.02-4.605 1.229-2.879.658-6.148-1.441-8.354C637.6 498.7 615.9 475.3 599.6 443.7z"/>
+              </svg>
+            </span>
+            Add to discussions
+          </a>
+        
+
+        
+        <p class="nav_label">Issues? Corrections?</p>
+        <a href="https://github.com/Karpova-Lab/haptic-tof-nosepoke/issues/new" class="nav_button">
+            <span style="vertical-align: middle;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="height:.6rem"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.-->
+                    <path d="M490.3 40.4c21.9 21.87 21.9 57.33 0 79.2l-30 30.1-98-97.98 30.1-30.06c21.9-21.873 57.3-21.873 79.2 0l18.7 18.74zM172.4 241.7 339.7 74.34l98 97.96-167.4 167.3c-6.1 6.2-13.6 10.8-21.9 13.6l-88.8 29.6c-9.5 2.8-18.1.6-24.6-6.7-6.4-5.6-8.6-15.1-5.8-23.7l29.6-88.8c2.8-8.3 7.4-15.8 13.6-21.9zM192 63.1c17.7 0 32 15.23 32 32 0 18.6-14.3 32-32 32H96c-17.67 0-32 15.2-32 32V416c0 17.7 14.33 32 32 32h256c17.7 0 32-14.3 32-32v-96.9c0-16.8 14.3-32 32-32s32 15.2 32 32V416c0 53-43 96-96 96H96c-53.02 0-96-43-96-96V159.1c0-53 42.98-96 96-96h96z"/>
+                </svg>
+            </span>
+            Submit an issue 
+        </a>
+        
+    </div>
+    <br>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="software">Software<a class="headerlink" href="#software" title="Permanent link">#</a></h1>
+<p>Download <a href="vl53L4.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6m-2 17-4-4h2.5v-3h3v3H16l-4 4m1-10V3.5L18.5 9H13Z"/></svg></span> vl53L4.py</a> and add it to your pyControl <code>devices</code> folder.</p>
+<!-- Here is an example task script -->
+
+<!-- Add `vl53L4.py` to your
+```python title="vl53L4.py"
+# This code is adapted from Adafruit's VL53L4CD library: https://docs.circuitpython.org/projects/vl53l4cd/en/latest/ - Andy Lustig May 2024
+
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+# SPDX-FileCopyrightText: Copyright (c) 2022 Carter Nelson for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
+
+import time
+import struct
+from micropython import const
+from pyControl.hardware import Analog_input, Digital_output
+
+__version__ = "0.0.0+auto.0"
+__repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_VL53L4CD.git"
+
+_VL53L4CD_SOFT_RESET = const(0x0000)
+_VL53L4CD_I2C_SLAVE_DEVICE_ADDRESS = const(0x0001)
+_VL53L4CD_VHV_CONFIG_TIMEOUT_MACROP_LOOP_BOUND = const(0x0008)
+_VL53L4CD_XTALK_PLANE_OFFSET_KCPS = const(0x0016)
+_VL53L4CD_XTALK_X_PLANE_GRADIENT_KCPS = const(0x0018)
+_VL53L4CD_XTALK_Y_PLANE_GRADIENT_KCPS = const(0x001A)
+_VL53L4CD_RANGE_OFFSET_MM = const(0x001E)
+_VL53L4CD_INNER_OFFSET_MM = const(0x0020)
+_VL53L4CD_OUTER_OFFSET_MM = const(0x0022)
+_VL53L4CD_I2C_FAST_MODE_PLUS = const(0x002D)
+_VL53L4CD_GPIO_HV_MUX_CTRL = const(0x0030)
+_VL53L4CD_GPIO_TIO_HV_STATUS = const(0x0031)
+_VL53L4CD_SYSTEM_INTERRUPT = const(0x0046)
+_VL53L4CD_RANGE_CONFIG_A = const(0x005E)
+_VL53L4CD_RANGE_CONFIG_B = const(0x0061)
+_VL53L4CD_RANGE_CONFIG_SIGMA_THRESH = const(0x0064)
+_VL53L4CD_MIN_COUNT_RATE_RTN_LIMIT_MCPS = const(0x0066)
+_VL53L4CD_INTERMEASUREMENT_MS = const(0x006C)
+_VL53L4CD_THRESH_HIGH = const(0x0072)
+_VL53L4CD_THRESH_LOW = const(0x0074)
+_VL53L4CD_SYSTEM_INTERRUPT_CLEAR = const(0x0086)
+_VL53L4CD_SYSTEM_START = const(0x0087)
+_VL53L4CD_RESULT_RANGE_STATUS = const(0x0089)
+_VL53L4CD_RESULT_SPAD_NB = const(0x008C)
+_VL53L4CD_RESULT_SIGNAL_RATE = const(0x008E)
+_VL53L4CD_RESULT_AMBIENT_RATE = const(0x0090)
+_VL53L4CD_RESULT_SIGMA = const(0x0092)
+_VL53L4CD_RESULT_DISTANCE = const(0x0096)
+
+_VL53L4CD_RESULT_OSC_CALIBRATE_VAL = const(0x00DE)
+_VL53L4CD_FIRMWARE_SYSTEM_STATUS = const(0x00E5)
+_VL53L4CD_IDENTIFICATION_MODEL_ID = const(0x010F)
+
+RANGE_VALID = const(0x00)
+RANGE_WARN_SIGMA_ABOVE = const(0x01)
+RANGE_WARN_SIGMA_BELOW = const(0x02)
+RANGE_ERROR_DISTANCE_BELOW_DETECTION_THRESHOLD = const(0x03)
+RANGE_ERROR_INVALID_PHASE = const(0x04)
+RANGE_ERROR_HW_FAIL = const(0x05)
+RANGE_WARN_NO_WRAP_AROUND_CHECK = const(0x06)
+RANGE_ERROR_WRAPPED_TARGET_PHASE_MISMATCH = const(0x07)
+RANGE_ERROR_PROCESSING_FAIL = const(0x08)
+RANGE_ERROR_CROSSTALK_FAIL = const(0x09)
+RANGE_ERROR_INTERRUPT = const(0x0A)
+RANGE_ERROR_MERGED_TARGET = const(0x0B)
+RANGE_ERROR_SIGNAL_TOO_WEAK = const(0x0C)
+RANGE_ERROR_OTHER = const(0xFF)
+
+
+class VL53L4CD(Analog_input):
+    def __init__(
+        self,
+        port,
+        i2c_instance,
+        sampling_rate,
+        nose_event,
+        threshold=None,
+    ):
+        super().__init__(
+            None,
+            nose_event,
+            int(sampling_rate),
+            threshold,
+            nose_event + "_TOF_in",
+            nose_event + "_TOF_out",
+            data_type="h",
+        )
+        self.i2c = i2c_instance
+        self._address = 41
+
+        self.LED = Digital_output(port.POW_A)
+        self.LED.off()
+        self.motor = Digital_output(port.POW_B)
+        self.motor.off()
+        self.tof_enable = Digital_output(port.DIO_C)
+        self.tof_enable.off()
+
+        self.buffer = bytearray(2)
+        self.get_range_packet = struct.pack(">H", 0x0096)
+        self.clear_packet = struct.pack(">H", 0x0086) + b"\x01"
+        self.proximity = 0
+        self.entrance = 0
+        self._ranging = False
+        self.connection_error = False
+
+    def i2c_setup(self, new_address=None):
+        self.tof_enable.on()
+        self._sensor_init()
+        if new_address:
+            self.set_address(new_address)
+
+    def set_address(self, new_address):
+        self._write_register(_VL53L4CD_I2C_SLAVE_DEVICE_ADDRESS, struct.pack(">B", new_address))
+        self._address = new_address
+
+    def begin(self):
+        self.inter_measurement = 0
+        self.timing_budget = 20
+        self.start_ranging()
+
+    def read_sample(self):
+        try:
+            self.i2c.writeto(self._address, self.clear_packet)  # clear interrupt
+            self.i2c.writeto(self._address, self.get_range_packet)
+            self.i2c.readfrom_into(self._address, self.buffer)
+            self.proximity = int.from_bytes(self.buffer, "big")
+
+            return self.entrance - self.proximity
+        except:
+            self.connection_error = True
+            return None
+
+    def _sensor_init(self):
+        # pylint: disable=line-too-long
+        init_seq = (
+            # value    addr : description
+            b"\x12"  # 0x2d : set bit 2 and 5 to 1 for fast plus mode (1MHz I2C), else don't touch
+            b"\x00"  # 0x2e : bit 0 if I2C pulled up at 1.8V, else set bit 0 to 1 (pull up at AVDD)
+            b"\x00"  # 0x2f : bit 0 if GPIO pulled up at 1.8V, else set bit 0 to 1 (pull up at AVDD)
+            b"\x11"  # 0x30 : set bit 4 to 0 for active high interrupt and 1 for active low (bits 3:0 must be 0x1)
+            b"\x02"  # 0x31 : bit 1 = interrupt depending on the polarity
+            b"\x00"  # 0x32 : not user-modifiable
+            b"\x02"  # 0x33 : not user-modifiable
+            b"\x08"  # 0x34 : not user-modifiable
+            b"\x00"  # 0x35 : not user-modifiable
+            b"\x08"  # 0x36 : not user-modifiable
+            b"\x10"  # 0x37 : not user-modifiable
+            b"\x01"  # 0x38 : not user-modifiable
+            b"\x01"  # 0x39 : not user-modifiable
+            b"\x00"  # 0x3a : not user-modifiable
+            b"\x00"  # 0x3b : not user-modifiable
+            b"\x00"  # 0x3c : not user-modifiable
+            b"\x00"  # 0x3d : not user-modifiable
+            b"\xff"  # 0x3e : not user-modifiable
+            b"\x00"  # 0x3f : not user-modifiable
+            b"\x0f"  # 0x40 : not user-modifiable
+            b"\x00"  # 0x41 : not user-modifiable
+            b"\x00"  # 0x42 : not user-modifiable
+            b"\x00"  # 0x43 : not user-modifiable
+            b"\x00"  # 0x44 : not user-modifiable
+            b"\x00"  # 0x45 : not user-modifiable
+            b"\x20"  # 0x46 : interrupt configuration 0->level low detection, 1-> level high, 2-> Out of window, 3->In window, 0x20-> New sample ready , TBC
+            b"\x0b"  # 0x47 : not user-modifiable
+            b"\x00"  # 0x48 : not user-modifiable
+            b"\x00"  # 0x49 : not user-modifiable
+            b"\x02"  # 0x4a : not user-modifiable
+            b"\x14"  # 0x4b : not user-modifiable
+            b"\x21"  # 0x4c : not user-modifiable
+            b"\x00"  # 0x4d : not user-modifiable
+            b"\x00"  # 0x4e : not user-modifiable
+            b"\x05"  # 0x4f : not user-modifiable
+            b"\x00"  # 0x50 : not user-modifiable
+            b"\x00"  # 0x51 : not user-modifiable
+            b"\x00"  # 0x52 : not user-modifiable
+            b"\x00"  # 0x53 : not user-modifiable
+            b"\xc8"  # 0x54 : not user-modifiable
+            b"\x00"  # 0x55 : not user-modifiable
+            b"\x00"  # 0x56 : not user-modifiable
+            b"\x38"  # 0x57 : not user-modifiable
+            b"\xff"  # 0x58 : not user-modifiable
+            b"\x01"  # 0x59 : not user-modifiable
+            b"\x00"  # 0x5a : not user-modifiable
+            b"\x08"  # 0x5b : not user-modifiable
+            b"\x00"  # 0x5c : not user-modifiable
+            b"\x00"  # 0x5d : not user-modifiable
+            b"\x01"  # 0x5e : not user-modifiable
+            b"\xcc"  # 0x5f : not user-modifiable
+            b"\x07"  # 0x60 : not user-modifiable
+            b"\x01"  # 0x61 : not user-modifiable
+            b"\xf1"  # 0x62 : not user-modifiable
+            b"\x05"  # 0x63 : not user-modifiable
+            b"\x00"  # 0x64 : Sigma threshold MSB (mm in 14.2 format for MSB+LSB), default value 90 mm
+            b"\xa0"  # 0x65 : Sigma threshold LSB
+            b"\x00"  # 0x66 : Min count Rate MSB (MCPS in 9.7 format for MSB+LSB)
+            b"\x80"  # 0x67 : Min count Rate LSB
+            b"\x08"  # 0x68 : not user-modifiable
+            b"\x38"  # 0x69 : not user-modifiable
+            b"\x00"  # 0x6a : not user-modifiable
+            b"\x00"  # 0x6b : not user-modifiable
+            b"\x00"  # 0x6c : Intermeasurement period MSB, 32 bits register
+            b"\x00"  # 0x6d : Intermeasurement period
+            b"\x0f"  # 0x6e : Intermeasurement period
+            b"\x89"  # 0x6f : Intermeasurement period LSB
+            b"\x00"  # 0x70 : not user-modifiable
+            b"\x00"  # 0x71 : not user-modifiable
+            b"\x00"  # 0x72 : distance threshold high MSB (in mm, MSB+LSB)
+            b"\x00"  # 0x73 : distance threshold high LSB
+            b"\x00"  # 0x74 : distance threshold low MSB ( in mm, MSB+LSB)
+            b"\x00"  # 0x75 : distance threshold low LSB
+            b"\x00"  # 0x76 : not user-modifiable
+            b"\x01"  # 0x77 : not user-modifiable
+            b"\x07"  # 0x78 : not user-modifiable
+            b"\x05"  # 0x79 : not user-modifiable
+            b"\x06"  # 0x7a : not user-modifiable
+            b"\x06"  # 0x7b : not user-modifiable
+            b"\x00"  # 0x7c : not user-modifiable
+            b"\x00"  # 0x7d : not user-modifiable
+            b"\x02"  # 0x7e : not user-modifiable
+            b"\xc7"  # 0x7f : not user-modifiable
+            b"\xff"  # 0x80 : not user-modifiable
+            b"\x9b"  # 0x81 : not user-modifiable
+            b"\x00"  # 0x82 : not user-modifiable
+            b"\x00"  # 0x83 : not user-modifiable
+            b"\x00"  # 0x84 : not user-modifiable
+            b"\x01"  # 0x85 : not user-modifiable
+            b"\x00"  # 0x86 : clear interrupt, 0x01=clear
+            b"\x00"  # 0x87 : ranging, 0x00=stop, 0x40=start
+        )
+        self._wait_for_boot()
+        self._write_register(0x002D, init_seq)
+        self._start_vhv()
+        self.clear_interrupt()
+        self.stop_ranging()
+        self._write_register(_VL53L4CD_VHV_CONFIG_TIMEOUT_MACROP_LOOP_BOUND, b"\x09")
+        self._write_register(0x0B, b"\x00")
+        self._write_register(0x0024, b"\x05\x00")
+        self.inter_measurement = 0
+        self.timing_budget = 50
+
+    @property
+    def model_info(self):
+        """A 2 tuple of Model ID and Module Type."""
+        info = self._read_register(_VL53L4CD_IDENTIFICATION_MODEL_ID, 2)
+        return info[0], info[1]  # Model ID, Module Type
+
+    @property
+    def distance(self):
+        """The distance in units of millimeters."""
+        dist = self._read_register(_VL53L4CD_RESULT_DISTANCE, 2)
+        dist = struct.unpack(">H", dist)[0]
+        return dist
+
+    @property
+    def range_status(self):
+        """Measurement validity. If the range status is equal to 0, the distance is valid."""
+        status_rtn = [
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_HW_FAIL,
+            RANGE_WARN_SIGMA_BELOW,
+            RANGE_ERROR_INVALID_PHASE,
+            RANGE_WARN_SIGMA_ABOVE,
+            RANGE_ERROR_WRAPPED_TARGET_PHASE_MISMATCH,
+            RANGE_ERROR_DISTANCE_BELOW_DETECTION_THRESHOLD,
+            RANGE_VALID,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_CROSSTALK_FAIL,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_INTERRUPT,
+            RANGE_WARN_NO_WRAP_AROUND_CHECK,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_OTHER,
+            RANGE_ERROR_MERGED_TARGET,
+            RANGE_ERROR_SIGNAL_TOO_WEAK,
+        ]
+        status = self._read_register(_VL53L4CD_RESULT_RANGE_STATUS, 1)
+        status = struct.unpack(">B", status)[0]
+        status = status & 0x1F
+        if status < 24:
+            status = status_rtn[status]
+        else:
+            status = RANGE_ERROR_OTHER
+        return status
+
+    @property
+    def sigma(self):
+        """Sigma estimator for the noise in the reported target distance in units of centimeters."""
+        sigma = self._read_register(_VL53L4CD_RESULT_SIGMA, 2)
+        sigma = struct.unpack(">H", sigma)[0]
+        return sigma / 40
+
+    @property
+    def timing_budget(self):
+        """Ranging duration in milliseconds. Valid range is 10ms to 200ms."""
+        osc_freq = struct.unpack(">H", self._read_register(0x0006, 2))[0]
+
+        macro_period_us = 16 * (int(2304 * (0x40000000 / osc_freq)) >> 6)
+
+        macrop_high = struct.unpack(">H", self._read_register(_VL53L4CD_RANGE_CONFIG_A, 2))[0]
+
+        ls_byte = (macrop_high & 0x00FF) << 4
+        ms_byte = (macrop_high & 0xFF00) >> 8
+        ms_byte = 0x04 - (ms_byte - 1) - 1
+
+        timing_budget_ms = (((ls_byte + 1) * (macro_period_us >> 6)) - ((macro_period_us >> 6) >> 1)) >> 12
+        if ms_byte < 12:
+            timing_budget_ms >>= ms_byte
+        if self.inter_measurement == 0:
+            # mode continuous
+            timing_budget_ms += 2500
+        else:
+            # mode autonomous
+            timing_budget_ms *= 2
+            timing_budget_ms += 4300
+
+        return int(timing_budget_ms / 1000)
+
+    @timing_budget.setter
+    def timing_budget(self, val):
+        if self._ranging:
+            raise RuntimeError("Must stop ranging first.")
+
+        if not 10 <= val <= 200:
+            raise ValueError("Timing budget range duration must be 10ms to 200ms.")
+
+        inter_meas = self.inter_measurement
+        if inter_meas != 0 and val > inter_meas:
+            raise ValueError("Timing budget can not be greater than inter-measurement period ({})".format(inter_meas))
+
+        osc_freq = struct.unpack(">H", self._read_register(0x0006, 2))[0]
+        if osc_freq == 0:
+            raise RuntimeError("Osc frequency is 0.")
+
+        timing_budget_us = val * 1000
+        macro_period_us = int(2304 * (0x40000000 / osc_freq)) >> 6
+
+        if inter_meas == 0:
+            # continuous mode
+            timing_budget_us -= 2500
+        else:
+            # autonomous mode
+            timing_budget_us -= 4300
+            timing_budget_us //= 2
+
+        # VL53L4CD_RANGE_CONFIG_A register
+        ms_byte = 0
+        timing_budget_us <<= 12
+        tmp = macro_period_us * 16
+        ls_byte = int(((timing_budget_us + ((tmp >> 6) >> 1)) / (tmp >> 6)) - 1)
+        while ls_byte & 0xFFFFFF00 > 0:
+            ls_byte >>= 1
+            ms_byte += 1
+        ms_byte = (ms_byte << 8) + (ls_byte & 0xFF)
+        self._write_register(_VL53L4CD_RANGE_CONFIG_A, struct.pack(">H", ms_byte))
+
+        # VL53L4CD_RANGE_CONFIG_B register
+        ms_byte = 0
+        tmp = macro_period_us * 12
+        ls_byte = int(((timing_budget_us + ((tmp >> 6) >> 1)) / (tmp >> 6)) - 1)
+        while ls_byte & 0xFFFFFF00 > 0:
+            ls_byte >>= 1
+            ms_byte += 1
+        ms_byte = (ms_byte << 8) + (ls_byte & 0xFF)
+        self._write_register(_VL53L4CD_RANGE_CONFIG_B, struct.pack(">H", ms_byte))
+
+    @property
+    def inter_measurement(self):
+        """
+        Inter-measurement period in milliseconds. Valid range is timing_budget to
+        5000ms, or 0 to disable.
+        """
+        reg_val = struct.unpack(">I", self._read_register(_VL53L4CD_INTERMEASUREMENT_MS, 4))[0]
+        clock_pll = struct.unpack(">H", self._read_register(_VL53L4CD_RESULT_OSC_CALIBRATE_VAL, 2))[0]
+        clock_pll &= 0x3FF
+        clock_pll = int(1.065 * clock_pll)
+        return int(reg_val / clock_pll)
+
+    @inter_measurement.setter
+    def inter_measurement(self, val):
+        if self._ranging:
+            raise RuntimeError("Must stop ranging first.")
+
+        timing_bud = self.timing_budget
+        if val != 0 and val < timing_bud:
+            raise ValueError("Inter-measurement period can not be less than timing budget ({})".format(timing_bud))
+
+        clock_pll = struct.unpack(">H", self._read_register(_VL53L4CD_RESULT_OSC_CALIBRATE_VAL, 2))[0]
+        clock_pll &= 0x3FF
+        int_meas = int(1.055 * val * clock_pll)
+        self._write_register(_VL53L4CD_INTERMEASUREMENT_MS, struct.pack(">I", int_meas))
+
+        # need to reset timing budget so that it will be based on new inter-measurement period
+        self.timing_budget = timing_bud
+
+    def start_ranging(self):
+        """Starts ranging operation."""
+        # start ranging depending inter-measurement setting
+        if self.inter_measurement == 0:
+            # continuous mode
+            self._write_register(_VL53L4CD_SYSTEM_START, b"\x21")
+        else:
+            # autonomous mode
+            self._write_register(_VL53L4CD_SYSTEM_START, b"\x40")
+
+        # wait for data ready
+        timed_out = True
+        for _ in range(1000):
+            if self.data_ready:
+                timed_out = False
+                break
+            time.sleep(0.001)
+        if timed_out:
+            raise TimeoutError("Time out waiting for data ready.")
+
+        self.clear_interrupt()
+        self._ranging = True
+
+    def stop_ranging(self):
+        """Stops ranging operation."""
+        self._write_register(_VL53L4CD_SYSTEM_START, b"\x00")
+        self._ranging = False
+
+    def clear_interrupt(self):
+        """Clears new data interrupt."""
+        self._write_register(_VL53L4CD_SYSTEM_INTERRUPT_CLEAR, b"\x01")
+
+    @property
+    def data_ready(self):
+        """Returns true if new data is ready, otherwise false."""
+        if self._read_register(_VL53L4CD_GPIO_TIO_HV_STATUS)[0] & 0x01 == self._interrupt_polarity:
+            return True
+        return False
+
+    @property
+    def _interrupt_polarity(self):
+        int_pol = self._read_register(_VL53L4CD_GPIO_HV_MUX_CTRL)[0] & 0x10
+        int_pol = (int_pol >> 4) & 0x01
+        return 0 if int_pol else 1
+
+    def _wait_for_boot(self):
+        for _ in range(1000):
+            if self._read_register(_VL53L4CD_FIRMWARE_SYSTEM_STATUS)[0] == 0x03:
+                return
+            time.sleep(0.001)
+        raise TimeoutError("Time out waiting for system boot.")
+
+    def _start_vhv(self):
+        self.start_ranging()
+        for _ in range(1000):
+            if self.data_ready:
+                return
+            time.sleep(0.001)
+        raise TimeoutError("Time out starting VHV.")
+
+    def _write_register(self, address, data, length=None):
+        if length is None:
+            length = len(data)
+        self.i2c.writeto(self._address, struct.pack(">H", address) + data[:length])
+
+    def _read_register(self, address, length=1):
+        data = bytearray(length)
+        self.i2c.writeto(self._address, struct.pack(">H", address))
+        self.i2c.readfrom_into(self._address, data)
+        return data
+``` -->
+
+<!-- ```c title="cerebro.ino"
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MIT License
+
+Copyright (c) 2015-2018 Andy S. Lustig
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+const uint8_t VERSION = 96; // 2018-11-30
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+        ______                   __
+       / ____/___   _____ ___   / /_   _____ ____
+      / /    / _ \ / ___// _ \ / __ \ / ___// __ \
+     / /___ /  __// /   /  __// /_/ // /   / /_/ /
+     \____/ \___//_/    \___//_.___//_/    \____/
+
+Documentation for this project can be found at https://karpova-lab.github.io/cerebro/
+*/
+#include <EEPROM.h>
+#include <LaserDiode.h>
+#include <SparkFunBQ27441.h>      //https://github.com/sparkfun/SparkFun_BQ27441_Arduino_Library
+#include <Radio.h>                //https://github.com/LowPowerLab/RFM69
+#include <LowPower.h>             //https://github.com/LowPowerLab/LowPower
+#include <avr/wdt.h>
+
+#define SERIAL_NUMBER_ADDRESS 0
+#define CHANNEL_ADDRESS 1
+#define WAVEFORM_ADDRESS 2
+#define LEFT_SETPOINT_ADDRESS 16
+#define RIGHT_SETPOINT_ADDRESS 18
+#define MISSING_ARRAY_ADDRESS 20
+
+WaveformData waveform;
+DiodePowers diodePwrs;
+IntegerPayload integerMessage;
+Info cerebroInfo;
+Feedback diodeStats;
+
+uint16_t meterVal = 0;
+
+const uint8_t amberLED = A0; //32u4 pin 36
+const uint8_t greenLED = 12; //32u4 pin 26
+const uint8_t userBTN = 6; //32u4 pin 27
+LaserDiode right(&DDRB,&PORTB,0,A4);
+LaserDiode left(&DDRD,&PORTD,2,A2);
+
+uint8_t channel;
+Radio radio(7,1); //slave select pin, interrupt pin
+uint16_t msgCount = 0;
+uint16_t missedCount = 0;
+uint16_t trigCount = 0;
+uint8_t batteryUpdateFrequency = 10;
+bool reportBatteryFlag = false;
+
+void setup() {
+  SPI.begin();
+  // Laser Diodes
+  EEPROM.get(LEFT_SETPOINT_ADDRESS,left.setPoint);
+  EEPROM.get(RIGHT_SETPOINT_ADDRESS,right.setPoint);
+  left.off();
+  right.off();
+
+  Serial.begin(115200);
+
+  // Initialize waveform
+  EEPROM.get(WAVEFORM_ADDRESS,waveform);
+
+  // UI setup
+  pinMode(userBTN,INPUT_PULLUP);
+  pinMode(greenLED,OUTPUT);
+  pinMode(amberLED,OUTPUT);
+  digitalWrite(amberLED,HIGH);
+
+  //*** Battery Monitor ***//
+  if (!lipo.begin()){
+    // If communication fails, print an error message and loop forever.
+    Serial.println("Error: Unable to communicate with BQ27441.");
+    while(1){ //blink error
+      digitalWrite(amberLED,HIGH);
+      delay(200);
+      digitalWrite(amberLED,LOW);
+      delay(200);
+    }
+  }
+  Serial.println("Connected to BQ27441!");
+  lipo.setCapacity(400);
+  while(lipo.soc()==0){
+    delay(1);
+    //wait;
+  }
+
+  //*** Radio ***//
+  EEPROM.get(SERIAL_NUMBER_ADDRESS,channel);
+  radio.radioSetup(CEREBRO,false,channel); //nodeID, autopower off;
+  integerMessage.variable = 'Y';
+  integerMessage.value = millis();
+  if (radio.sendWithRetry(BASESTATION, (const void*)(&integerMessage), sizeof(integerMessage),3,250)){
+    Serial.println("Connected to Base Station");
+  }
+  else{
+    Serial.println("Failed to Connect to Base Station");
+  }
+  printChannel();
+  reportVersion();
+  digitalWrite(amberLED,LOW);
+}
+
+void loop() {
+  //
+  if (!digitalRead(userBTN)){ //user button is pushed
+    uint16_t holdCount = 0;
+    uint16_t holdThresh = 5000; //need to hold the button for 5 seconds
+    digitalWrite(greenLED,HIGH);
+    while(!digitalRead(userBTN) && holdCount < holdThresh){
+      delay(1);
+      holdCount++;
+    }
+    if (holdCount >= holdThresh) { //Button was held down for 5 seconds
+      //Reset settings that are in memory
+      EEPROM.update(SERIAL_NUMBER_ADDRESS, 0);
+      waveform = {0,0,1000,0,0,0};
+      EEPROM.put(WAVEFORM_ADDRESS,waveform);  //save new waveform to memory
+      EEPROM.put(LEFT_SETPOINT_ADDRESS,0);
+      EEPROM.put(RIGHT_SETPOINT_ADDRESS,0);
+
+      //blink to indicate button was held long enough and reset has occured
+      uint8_t blinkDelay = 85;
+      digitalWrite(greenLED,LOW);
+      delay(blinkDelay);
+      digitalWrite(greenLED,HIGH);
+      delay(blinkDelay);
+      digitalWrite(greenLED,LOW);
+      delay(blinkDelay);
+      digitalWrite(greenLED,HIGH);
+      delay(blinkDelay);
+
+      //restart MCU so it will 
+      Serial.println("Restarting...");
+      wdt_enable(WDTO_15MS);  // turn on the WatchDog timer
+      while(1){}              // do nothing and wait for the reset
+    }
+  }
+  if (Serial.available()){
+    char msg = Serial.read();
+    if (msg=='?'){
+      printChannel();
+      Serial.print("Version: ");
+      Serial.println(VERSION);
+
+    }
+  }
+  //check for any received packets
+  if (radio.receiveDone()){
+    uint8_t dlay = 200;
+    if (radio.DATALEN==1){ //received a command or a request for data
+      sendACK();
+      switch (radio.DATA[0]){
+        case 'B':
+          reportBattery();break;
+        case 'N':
+          msgCount = 0;
+          missedCount = 0;
+          reportVersion();
+          delay(dlay);
+          reportPower();
+          delay(dlay);
+          reportWaveform();
+          delay(dlay);
+          reportBattery();break;
+        case 'i':
+          isolationTest();break;
+        case 'c':
+          combinedTest();break;
+        default:
+          Serial.println("Command not recognized");break;
+      }
+    }
+    else if (radio.DATALEN == sizeof(waveform)){ //received a waveform data
+      sendACK();
+      msgCount++;
+      waveform = *(WaveformData*)radio.DATA;  //update waveform
+      EEPROM.put(WAVEFORM_ADDRESS,waveform);  //save new waveform to memory
+      reportWaveform();
+    }
+    else if (radio.DATALEN == sizeof(diodePwrs)){ //received a waveform data
+      sendACK();
+      msgCount++;
+      diodePwrs = *(DiodePowers*)radio.DATA;
+      left.setPoint = diodePwrs.lSetPoint;
+      right.setPoint = diodePwrs.rSetPoint;
+      EEPROM.put(LEFT_SETPOINT_ADDRESS,left.setPoint);
+      EEPROM.put(RIGHT_SETPOINT_ADDRESS,right.setPoint);
+      reportPower();
+    }
+    else if (radio.DATALEN == sizeof(integerMessage)){ //received a variable update
+      sendACK();
+      integerMessage = *(IntegerPayload*)radio.DATA;
+      switch (integerMessage.variable){
+        case 'T':
+          trigCount++;
+          checkForMiss();
+          triggerBoth();
+          break;
+        case 'S': // Receiving a new Cerebro S/N
+          EEPROM.update(SERIAL_NUMBER_ADDRESS, integerMessage.value);
+          reportVersion();
+          Serial.print("New Serial:");
+          Serial.println(integerMessage.value);
+          Serial.println("Restarting...");
+          wdt_enable(WDTO_15MS);  // turn on the WatchDog timer
+          while(1){}              // do nothing and wait for the reset
+          break;
+        case 'l': // Receiving a new left setpoint
+          // Serial.print("\nTriggering Left @ ");Serial.println(integerMessage.value);
+          triggerOne(integerMessage.value,&left);
+          break;
+        case 'r': // Receiving a new right setpoint
+          // Serial.print("\nTriggering Right @");Serial.println(integerMessage.value);
+          triggerOne(integerMessage.value,&right);
+          break;
+        case 'M':
+          checkForMiss();
+          printMissed();
+          break;
+      }
+    }
+    else{
+      Serial.println("Unexpected Data size received");
+    }
+  }
+  // LowPower.idle(SLEEP_FOREVER,ADC_OFF,TIMER4_OFF,TIMER3_OFF,TIMER1_OFF,TIMER0_ON,SPI_ON,USART1_OFF,TWI_OFF,USB_OFF);
+}
+
+void sendACK(){
+  if (radio.ACKRequested()){
+    radio.sendACK();
+  }
+}
+
+void checkForMiss(){
+  msgCount++;
+  if (trigCount%batteryUpdateFrequency==0){
+    reportBatteryFlag = true;
+  }
+  if (msgCount!=integerMessage.value){
+    for (msgCount; msgCount<integerMessage.value; msgCount++){
+      EEPROM.put(MISSING_ARRAY_ADDRESS + 2*missedCount,msgCount);
+      missedCount++;
+    }
+  }
+}
+
+void combinedTest(){
+  triggerOne(left.setPoint,&left);
+  delay(1000);
+  triggerBoth();
+  delay(1000);
+  triggerOne(right.setPoint,&right);
+  delay(5000);
+  Serial.println();
+}
+
+void isolationTest(){
+  // Serial.print("Before left: ");
+  feedbackReadings();
+  triggerOne(left.setPoint,&left);
+  delay(1000);
+  // Serial.print("Before right: ");
+  feedbackReadings();
+  triggerOne(right.setPoint,&right);
+}
+
+void feedbackReadings(){
+  Serial.print(analogRead(left.analogPin));
+  Serial.print(", ");
+  Serial.println(analogRead(right.analogPin));
+}
+
+void printMissed(){
+  reportBattery();
+  delay(200);
+  uint16_t missed;
+  // Serial.print("missed,");Serial.println(missedCount);
+  integerMessage.variable = 'M';
+  integerMessage.value = missedCount;
+  if (radio.sendWithRetry(BASESTATION, (const void*)(&integerMessage), sizeof(integerMessage),3,250)){
+    // Serial.print("Sent");Serial.println(missedCount);
+  }
+  else{
+    // Serial.println("Sending again");
+  }
+  integerMessage.variable = 'm';
+  for (int i = 0; i <missedCount; i++ ){
+    EEPROM.get(MISSING_ARRAY_ADDRESS+2*i,missed);
+    integerMessage.value = (int)missed;
+    if (radio.sendWithRetry(BASESTATION, (const void*)(&integerMessage), sizeof(integerMessage),3,250)){
+      // Serial.println(missed);
+    }
+    else{
+      // Serial.println("Sending again");
+    }
+  }
+  // Serial.println("done");
+}
+
+void reportVersion(){
+  EEPROM.get(SERIAL_NUMBER_ADDRESS,cerebroInfo.serialNumber);
+  cerebroInfo.firmware = VERSION;
+  cerebroInfo.msgCount = msgCount;
+  if (radio.sendWithRetry(BASESTATION, (const void*)(&cerebroInfo), sizeof(cerebroInfo),4)){
+    // Serial.println("Version sent successfully");
+  }
+  else{
+    // Serial.println("Error sending Version");
+  }
+}
+
+void reportPower(){
+  diodePwrs.lSetPoint = left.setPoint;
+  diodePwrs.rSetPoint = right.setPoint;
+  diodePwrs.msgCount = msgCount;
+  if (radio.sendWithRetry(BASESTATION, (const void*)(&diodePwrs), sizeof(diodePwrs),4)){
+    // Serial.println("Diode Powers sent successfully");
+  }
+  else{
+    // Serial.println("Error sending Diode Powers");
+  }
+}
+
+void reportWaveform(){
+  waveform.msgCount = msgCount;
+  if (radio.sendWithRetry(BASESTATION, (const void*)(&waveform), sizeof(waveform),4)){
+    // Serial.println("Waveform sent successfully");
+  }
+  else{
+    // Serial.println("Error sending Waveform");
+  }
+}
+
+void reportBattery(){
+  integerMessage.variable = 'B';
+  integerMessage.value = lipo.soc();
+  integerMessage.msgCount = msgCount;
+  if (radio.sendWithRetry(BASESTATION, (const void*)(&integerMessage), sizeof(integerMessage),4)){
+    //
+  }
+  else{
+    // Serial.println("Battery info send fail");
+  }
+}
+
+void printChannel(){
+  Serial.print("Channel: ");
+  Serial.println(channel);
+}
+uint8_t parseData(){
+  char msgData[5];
+  Serial.readBytesUntil('\n',msgData,5);
+  char* msgPointer;
+  msgPointer = strtok(msgData,",");
+  return atoi(msgPointer);
+}
+``` -->
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 24, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../hardware/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hardware">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Hardware
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Andy Lustig
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.instant", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
