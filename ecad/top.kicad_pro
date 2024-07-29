@@ -81,6 +81,7 @@
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
         "hole_near_hole": "error",
+        "holes_co_located": "warning",
         "invalid_outline": "error",
         "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
@@ -113,6 +114,7 @@
         "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
+        "zone_has_empty_net": "error",
         "zones_intersect": "error"
       },
       "rule_severitieslegacy_courtyards_overlap": true,
@@ -452,7 +454,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "perimeter.kicad_pro",
+    "filename": "top.kicad_pro",
     "version": 1
   },
   "net_settings": {
