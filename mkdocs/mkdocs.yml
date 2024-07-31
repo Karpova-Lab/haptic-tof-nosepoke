@@ -1,7 +1,7 @@
 # Please fill out the following fields to customize your documentation site
 site_name: Haptic Time of Flight Nosepoke Documentation
 site_description: A nosepoke with vibration and analog distance sensing for neuroscience experiments
-repo_url: https://github.com/Karpova-Lab/haptic-tof-nosepoke/tree/v3
+repo_url: https://github.com/Karpova-Lab/haptic-tof-nosepoke/
 repo_name: Karpova-Lab/haptic-tof-nosepoke
 site_author: Andy Lustig
 copyright: Copyright &copy; 2024 Andy Lustig

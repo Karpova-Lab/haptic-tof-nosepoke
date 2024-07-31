@@ -1,7 +1,6 @@
 # Overview
-![](assembly.gif)
 
-# this is 1.2
+![](assembly.gif)
 
 This is the documentation for a nosepoke that is used for neuroscience experiments.
 It was developed in the [Karpova Lab](https://www.janelia.org/lab/karpova-lab) at HHMI's Janelia research campus.
