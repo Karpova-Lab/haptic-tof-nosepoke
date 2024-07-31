@@ -1,3 +1,6 @@
 [submodule "ecad/libs"]
 	path = ecad/libs
 	url = https://github.com/alustig3/kicad-libraries.git
+[submodule "mkdocs"]
+	path = mkdocs
+	url = https://github.com/alustig3/mkdocs.git
