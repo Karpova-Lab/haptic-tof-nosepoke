@@ -1,16 +1,17 @@
 # Please fill out the following fields to customize your documentation site
-site_name: Project title
-site_description: Project description
-repo_url: https://github.com/organiztion/repo #for example https://github.com/Karpova-Lab/pyControl-D-Series-Breakout
-repo_name: organization/repo #for example Karpova-Lab/pyControl-D-Series-Breakout
-site_author: Jane Doe
-copyright: Copyright &copy; 2024 Jane Doe
+site_name: Haptic Time of Flight Nosepoke Documentation
+site_description: A nosepoke with vibration and analog distance sensing for neuroscience experiments
+repo_url: https://github.com/Karpova-Lab/haptic-tof-nosepoke/tree/v3
+repo_name: Karpova-Lab/haptic-tof-nosepoke
+site_author: Andy Lustig
+copyright: Copyright &copy; 2024 Andy Lustig
 
 extra:
-    discussion_url: # for example https://github.com/Karpova-Lab/pyControl-D-Series-Breakout/discussions
-    issues_url: # for example https://github.com/Karpova-Lab/pyControl-D-Series-Breakout/issues/new
+    discussion_url: https://github.com/Karpova-Lab/haptic-tof-nosepoke/discussions
+    issues_url: https://github.com/Karpova-Lab/haptic-tof-nosepoke/issues/new
     version:
         provider: mike
+        alias: true
 
 nav:
     - Overview: index.md
