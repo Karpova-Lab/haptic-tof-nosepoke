@@ -19,8 +19,13 @@ gitdb==4.0.11
 gitpython==3.1.43
 idna==3.7
     # via requests
+importlib-metadata==8.2.0
+    # via mike
+importlib-resources==6.4.0
+    # via mike
 jinja2==3.1.4
     # via
+    #   mike
     #   mkdocs
     #   mkdocs-material
 markdown==3.6
@@ -36,8 +41,10 @@ mergedeep==1.3.4
     # via
     #   mkdocs
     #   mkdocs-get-deps
+mike==2.1.2
 mkdocs==1.6.0
     # via
+    #   mike
     #   mkdocs-include-markdown-plugin
     #   mkdocs-material
 mkdocs-get-deps==0.2.0
@@ -58,17 +65,22 @@ pygments==2.18.0
     # via mkdocs-material
 pymdown-extensions==10.9
     # via mkdocs-material
+pyparsing==3.1.2
+    # via mike
 python-dateutil==2.9.0.post0
     # via ghp-import
 pytz==2024.1
 pyyaml==6.0.1
     # via
+    #   mike
     #   mkdocs
     #   mkdocs-get-deps
     #   pymdown-extensions
     #   pyyaml-env-tag
 pyyaml-env-tag==0.1
-    # via mkdocs
+    # via
+    #   mike
+    #   mkdocs
 regex==2024.7.24
     # via mkdocs-material
 requests==2.32.3
@@ -79,7 +91,11 @@ smmap==5.0.1
     # via gitdb
 urllib3==2.2.2
     # via requests
+verspec==0.1.0
+    # via mike
 watchdog==4.0.1
     # via mkdocs
 wcmatch==8.5.2
     # via mkdocs-include-markdown-plugin
+zipp==3.19.2
+    # via importlib-metadata

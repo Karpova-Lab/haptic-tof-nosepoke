@@ -1,2 +1,10 @@
+*.kicad_prl
 ecad/rear-backups
 ecad/perimeter-backups
+ecad/fp-info-cache
+ecad/top-backups
+ecad/orders
+ecad/manufacturing
+mkdocs/src/hardware/unused
+mcad/old_cad
+ecad/bom
