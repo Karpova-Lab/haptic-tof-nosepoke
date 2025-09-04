@@ -28,7 +28,7 @@
 The nosepoke is mounted to a panel which is slotted into place to make up the back wall of the behavior arena. The panel integrates a [flexure](https://en.wikipedia.org/wiki/Flexure) to isolate the vibrating nosepoke so the vibrations are actually felt by the rat instead of being absorbed by the mass of the surrounding rig.
 
 - Process: Water jet cutting
-- Material: 1/8" aluminum
+- Material: 0.1" aluminum ([89015K961](https://www.mcmaster.com/89015K961/if))
 - Files:
 	- [:material-file-download: side_panel.dxf](hardware/side_panel.dxf)
 	- [:material-file-download: side_panel.step](hardware/side_panel.step)

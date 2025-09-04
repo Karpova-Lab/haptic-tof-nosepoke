@@ -39,7 +39,7 @@ The rear PCB has a [pyControl compatible RJ45 connection](https://pycontrol.read
 
 The top PCB has a controllable overhead white LED and a vibration motor. The LED can light up the inside of the nosepoke and the motor can provide haptic feedback.
 
-<a href="https://oshpark.com/shared_projects/JaZEQU5D"><img src="https://oshpark.com/assets/badge-5b7ec47045b78aef6eb9d83b3bac6b1920de805e9a0c227658eac6e19a045b9c.png" alt="Order from OSH Park"></img></a>
+<a href="https://oshpark.com/shared_projects/7zna11NF"><img src="https://oshpark.com/assets/badge-5b7ec47045b78aef6eb9d83b3bac6b1920de805e9a0c227658eac6e19a045b9c.png" alt="Order from OSH Park"></img></a>
 
 
 
