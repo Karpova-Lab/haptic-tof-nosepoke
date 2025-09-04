@@ -1,18 +1,20 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "d9551b7a-ff1a-4c5e-970e-b6d68c1e2985")
 	(paper "A5")
 	(title_block
 		(title "Nosepoke Top")
-		(date "2024-07-22")
-		(rev "1.0")
+		(date "2025-09-04")
+		(rev "1.1")
 	)
 	(lib_symbols
 		(symbol "Connector:Conn_01x04_Pin"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -86,21 +88,53 @@
 				)
 			)
 			(symbol "Conn_01x04_Pin_1_1"
-				(polyline
-					(pts
-						(xy 1.27 -5.08) (xy 0.8636 -5.08)
-					)
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
 					(stroke
 						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
 				(polyline
 					(pts
-						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+						(xy 1.27 2.54) (xy 0.8636 2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -124,7 +158,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 2.54) (xy 0.8636 2.54)
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -134,48 +168,16 @@
 						(type none)
 					)
 				)
-				(rectangle
-					(start 0.8636 -4.953)
-					(end 0 -5.207)
+				(polyline
+					(pts
+						(xy 1.27 -5.08) (xy 0.8636 -5.08)
+					)
 					(stroke
 						(width 0.1524)
 						(type default)
 					)
 					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
+						(type none)
 					)
 				)
 				(pin passive line
@@ -251,11 +253,156 @@
 					)
 				)
 			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:C_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Small"
+				(at 0.254 -2.032 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "capacitor cap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3302)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:LED"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -323,10 +470,22 @@
 			(symbol "LED_0_1"
 				(polyline
 					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27)
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
 					)
 					(stroke
-						(width 0.254)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -347,7 +506,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+						(xy -1.27 -1.27) (xy -1.27 1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -359,22 +518,10 @@
 				)
 				(polyline
 					(pts
-						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
 					)
 					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-					)
-					(stroke
-						(width 0)
+						(width 0.254)
 						(type default)
 					)
 					(fill
@@ -420,9 +567,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_US"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
 			)
@@ -493,18 +643,6 @@
 			(symbol "R_US_0_1"
 				(polyline
 					(pts
-						(xy 0 -2.286) (xy 0 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy 0 2.286) (xy 0 2.54)
 					)
 					(stroke
@@ -517,7 +655,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
 					)
 					(stroke
 						(width 0)
@@ -541,7 +679,19 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -590,6 +740,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Motor:Motor_DC"
 			(pin_names
@@ -676,32 +827,9 @@
 				)
 			)
 			(symbol "Motor_DC_0_1"
-				(circle
-					(center 0 -1.524)
-					(radius 3.2512)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(polyline
 					(pts
-						(xy 0 -7.62) (xy 0 -7.112)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -4.7752) (xy 0 -5.1816)
+						(xy 0 2.032) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -723,9 +851,32 @@
 						(type none)
 					)
 				)
+				(circle
+					(center 0 -1.524)
+					(radius 3.2512)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
-						(xy 0 2.032) (xy 0 2.54)
+						(xy 0 -4.7752) (xy 0 -5.1816)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -7.62) (xy 0 -7.112)
 					)
 					(stroke
 						(width 0)
@@ -774,11 +925,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "asl_symbols_new:Diode"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -858,10 +1014,10 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 0) (xy -1.27 0)
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
 					)
 					(stroke
-						(width 0)
+						(width 0.2032)
 						(type default)
 					)
 					(fill
@@ -870,10 +1026,10 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+						(xy 1.27 0) (xy -1.27 0)
 					)
 					(stroke
-						(width 0.2032)
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -919,7 +1075,26 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(junction
+		(at 83.82 83.185)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1c224c43-a78a-478e-b20d-903f3f0b5cc7")
+	)
+	(junction
+		(at 83.82 76.835)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d3c489a-6d9d-4460-910e-1888fbd33342")
+	)
+	(junction
+		(at 106.68 76.835)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6baffaec-87d9-4549-8092-2ebf024db1f5")
 	)
 	(junction
 		(at 106.68 69.215)
@@ -927,15 +1102,9 @@
 		(color 0 0 0 0)
 		(uuid "7ac42714-9031-4b82-b770-6db0821f51f8")
 	)
-	(junction
-		(at 92.71 79.375)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9fc7522f-eede-4954-9d61-eb30724711c5")
-	)
 	(wire
 		(pts
-			(xy 105.41 79.375) (xy 106.68 79.375)
+			(xy 102.235 83.185) (xy 106.68 83.185)
 		)
 		(stroke
 			(width 0)
@@ -945,7 +1114,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.725 75.565) (xy 85.725 79.375)
+			(xy 78.74 75.565) (xy 78.74 83.185)
 		)
 		(stroke
 			(width 0)
@@ -955,13 +1124,33 @@
 	)
 	(wire
 		(pts
-			(xy 103.505 69.215) (xy 106.68 69.215)
+			(xy 99.06 69.215) (xy 106.68 69.215)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "224ec9ba-61bb-4cb7-823a-d5c09c78bcde")
+	)
+	(wire
+		(pts
+			(xy 92.71 76.835) (xy 97.79 76.835)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "268c98fd-2b50-4b53-8dc8-a29aa246ad5e")
+	)
+	(wire
+		(pts
+			(xy 83.82 76.835) (xy 83.82 83.185)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a3bebf3-420e-4792-a8eb-ccab2744ea1c")
 	)
 	(wire
 		(pts
@@ -975,7 +1164,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.725 79.375) (xy 92.71 79.375)
+			(xy 78.74 83.185) (xy 83.82 83.185)
 		)
 		(stroke
 			(width 0)
@@ -985,13 +1174,23 @@
 	)
 	(wire
 		(pts
-			(xy 85.725 61.595) (xy 85.725 67.945)
+			(xy 78.74 61.595) (xy 78.74 67.945)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "58bf6947-0aa6-4615-8284-9c887edfc09f")
+	)
+	(wire
+		(pts
+			(xy 83.82 76.835) (xy 87.63 76.835)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b1e8236-f3fd-4e24-8ccc-7d4248b03c21")
 	)
 	(wire
 		(pts
@@ -1005,7 +1204,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 69.215) (xy 95.885 69.215)
+			(xy 83.82 69.215) (xy 91.44 69.215)
 		)
 		(stroke
 			(width 0)
@@ -1015,7 +1214,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.725 61.595) (xy 113.03 61.595)
+			(xy 78.74 61.595) (xy 113.03 61.595)
 		)
 		(stroke
 			(width 0)
@@ -1025,13 +1224,13 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 69.215) (xy 92.71 79.375)
+			(xy 83.82 69.215) (xy 83.82 76.835)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6f873546-afdb-4d22-aee0-a4e00338589b")
+		(uuid "75477d59-9ef8-44b1-b36c-1d164f65b2db")
 	)
 	(wire
 		(pts
@@ -1065,7 +1264,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 69.215) (xy 106.68 79.375)
+			(xy 106.68 69.215) (xy 106.68 76.835)
 		)
 		(stroke
 			(width 0)
@@ -1093,9 +1292,38 @@
 		)
 		(uuid "bb79ebb0-f906-49dd-ab1d-fdc63b2ea7c6")
 	)
+	(wire
+		(pts
+			(xy 106.68 76.835) (xy 106.68 83.185)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3f1da20-73e8-4055-b01d-b8b5794471ee")
+	)
+	(wire
+		(pts
+			(xy 105.41 76.835) (xy 106.68 76.835)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eb22b1e7-4f6e-49af-b24a-2040e25b455b")
+	)
+	(wire
+		(pts
+			(xy 83.82 83.185) (xy 89.535 83.185)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7147d1c-2ca7-4160-a959-1af2e6f5af66")
+	)
 	(label "POW_B"
 		(at 113.03 64.135 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1106,7 +1334,6 @@
 	)
 	(label "POW_A"
 		(at 113.03 59.055 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1117,7 +1344,6 @@
 	)
 	(label "12V"
 		(at 113.03 61.595 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1128,7 +1354,6 @@
 	)
 	(label "5V"
 		(at 113.03 56.515 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1206,7 +1431,7 @@
 	)
 	(symbol
 		(lib_id "asl_symbols_new:Diode")
-		(at 99.695 69.215 0)
+		(at 95.25 69.215 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1214,7 +1439,7 @@
 		(dnp no)
 		(uuid "193eea47-81ca-40c9-a0d4-c90664000a29")
 		(property "Reference" "D2"
-			(at 99.695 63.8259 0)
+			(at 95.25 63.8259 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1222,7 +1447,7 @@
 			)
 		)
 		(property "Value" "1N5819HW-7-F"
-			(at 98.425 66.675 0)
+			(at 93.98 66.675 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1230,7 +1455,7 @@
 			)
 		)
 		(property "Footprint" "asl_footprints:D_SOD-123F"
-			(at 99.695 69.215 0)
+			(at 95.25 69.215 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1239,7 +1464,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.digikey.com/en/products/detail/diodes-incorporated/1N5819HW-7-F/815283"
-			(at 99.695 69.215 0)
+			(at 95.25 69.215 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1248,7 +1473,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 99.695 69.215 0)
+			(at 95.25 69.215 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1273,7 +1498,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 85.725 71.755 180)
+		(at 78.74 71.755 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1281,7 +1506,7 @@
 		(dnp no)
 		(uuid "4512fa1c-76f1-49b4-bc04-35201fe689b9")
 		(property "Reference" "R2"
-			(at 81.28 70.485 0)
+			(at 74.295 70.485 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1289,7 +1514,7 @@
 			)
 		)
 		(property "Value" "120Ω"
-			(at 81.28 72.39 0)
+			(at 74.295 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1297,7 +1522,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
-			(at 84.709 71.501 90)
+			(at 77.724 71.501 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1306,7 +1531,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.digikey.com/en/products/detail/vishay-dale/CRCW1206120RFKEAHP/2227652"
-			(at 85.725 71.755 0)
+			(at 78.74 71.755 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1315,7 +1540,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 85.725 71.755 0)
+			(at 78.74 71.755 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1412,35 +1637,32 @@
 		)
 	)
 	(symbol
-		(lib_id "Motor:Motor_DC")
-		(at 97.79 79.375 90)
-		(mirror x)
+		(lib_id "Device:R_US")
+		(at 101.6 76.835 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b3f12e3c-4806-4f36-9cdc-841e2be617c3")
-		(property "Reference" "M1"
-			(at 97.282 83.439 90)
+		(uuid "793987d6-05a4-4096-af92-3c40f0677ba9")
+		(property "Reference" "R3"
+			(at 101.854 72.517 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "VZ43FM1B8230001L"
-			(at 103.378 85.471 90)
+		(property "Value" "100"
+			(at 101.6 74.549 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "asl_footprints:vibration_motor_12k_smd"
-			(at 100.076 79.375 0)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 101.346 77.851 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1448,8 +1670,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.digikey.com/en/products/detail/vybronics-inc/VZ43FM1B8230001L/12323592"
-			(at 100.076 79.375 0)
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/panasonic-electronic-components/ERA-6AEB101V/1465724"
+			(at 101.6 76.835 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1458,7 +1680,145 @@
 			)
 		)
 		(property "Description" ""
-			(at 97.79 79.375 0)
+			(at 101.6 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7cd0b7ed-aa90-4e31-8bce-4dfb818e0fbf")
+		)
+		(pin "2"
+			(uuid "98c8f30d-dd3c-4c66-b31c-c4f5232ad4bf")
+		)
+		(instances
+			(project "top"
+				(path "/d9551b7a-ff1a-4c5e-970e-b6d68c1e2985"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 90.17 76.835 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "aa192cbe-e587-416d-beff-87d0736791f3")
+		(property "Reference" "C1"
+			(at 90.1763 71.1284 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1µF"
+			(at 90.1763 73.5527 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 90.17 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/kemet/C0805C104K5RACTU/411169"
+			(at 90.17 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 90.17 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d5f37067-c22c-47a8-b35f-ca1a666668ec")
+		)
+		(pin "1"
+			(uuid "bd6ee9c5-57f6-40b7-ab2c-1258e110c914")
+		)
+		(instances
+			(project ""
+				(path "/d9551b7a-ff1a-4c5e-970e-b6d68c1e2985"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Motor:Motor_DC")
+		(at 94.615 83.185 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b3f12e3c-4806-4f36-9cdc-841e2be617c3")
+		(property "Reference" "M1"
+			(at 94.107 87.249 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "VZ43FM1B8230001L"
+			(at 100.203 89.281 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "asl_footprints:vibration_motor_12k_smd"
+			(at 96.901 83.185 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/vybronics-inc/VZ43FM1B8230001L/12323592"
+			(at 96.901 83.185 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 94.615 83.185 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1553,4 +1913,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )

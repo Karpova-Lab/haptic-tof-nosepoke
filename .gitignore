@@ -8,3 +8,4 @@ ecad/manufacturing
 mkdocs/src/hardware/unused
 mcad/old_cad
 ecad/bom
+ecad/ibom.config.ini
