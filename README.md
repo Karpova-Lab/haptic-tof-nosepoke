@@ -4,7 +4,7 @@
 ## Overview
 - A [pyControl](https://pycontrol.readthedocs.io/en/latest/) compatible device for detecting rat nose pokes and delivering liquid rewards
 - Everything is open source to encourage users to replicate, customize, repair, and upgrade their own hardware
-- 📖 Full documentation at **[https://github.com/Karpova-Lab/haptic-tof-nosepoke/](https://github.com/Karpova-Lab/haptic-tof-nosepoke/)**
+- 📖 Full documentation at **[https://karpova-lab.github.io/haptic-tof-nosepoke/latest/](https://karpova-lab.github.io/haptic-tof-nosepoke/latest/)**
 
 ![rotating assembly](mkdocs/src/assembly.gif)
 ![rotating pcbs](mkdocs/src/electronics/pcb_rotate.gif)
